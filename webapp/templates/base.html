@@ -28,7 +28,7 @@
     <main>
         <div class="sidebar">
             <div class="profile-image">
-                <img src="{{ user.profile.image.url }}" alt="{{user.first_name}}">
+                <img src="{% static 'images/default-avatar.png' %}" alt="{{user.first_name}}">
             </div>
             <div class="profile">
                 <h3>{{user.first_name}} {{user.last_name}}</h3>
