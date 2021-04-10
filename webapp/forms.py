@@ -36,7 +36,6 @@ class ProfileForm(forms.ModelForm):
         fields = [
             'address',
             'birth_date',
-            'image',
         ]
 
 class PartyForm(forms.ModelForm):
