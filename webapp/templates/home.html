@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/design.css' %}">
+{% endblock css %}
+
+{% block pageTitle %}Home - Hamro Khata{% endblock pageTitle %}
+
+{% block content %}
+    <div class="row p-3">
+        <div class="col-md">
+            <div class="row">
+                <div class="col-sm-6 topay py-3">
+                    <h1>{{toPay}}</h1>
+                    <h6>TO PAY</h6>
+                </div>
+                <div class="col-sm-6 toget py-3">
+                    <h1>{{toGet}}</h1>
+                    <h6>TO GET</h6>
+                </div>
+                <div class="col-sm-12 total py-3">
+                    {% if total > 0 %}
+                        <h1>+ {{total}}</h1>
+                    {% elif total < 0 %}
+                        <h1>{{total}}</h1>
+                    {% endif %}
+                    <h6>TOTAL</h6>
+                </div>
+            </div>
+        </div>
+        <div class="col-md">
+            <div class="row px-2">
+                <div class="col-12 addlink py-3">
+                    <a href="{% url 'add_party' %}">Add Party >>></a>
+                </div>
+                <div class="col-12 addlink py-3">
+                    <a href="{% url 'add_transaction' %}">Add Transaction >>></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row p-3">
+        <div class="col-md party-index">
+            <table class="table table-hover">
+                <tbody>
+                    {% for party in parties %}
+                        <tr>
+                            <td><a href="{% url 'party-statement' party.id %}">{{ party.name }}</a></td>
+                            {% if party.amount > 0 %}
+                                <td style="color: green;">+{{ party.amount}}</td>
+                            {% elif party.amount < 0 %}
+                                <td style="color: red;">{{ party.amount}}</td>
+                            {% endif %}
+                        </tr>
+                    {% endfor %}
+                </tbody>
+              </table>
+        </div>
+        <div class="col-md"></div>
+    </div>
+{% endblock content %}

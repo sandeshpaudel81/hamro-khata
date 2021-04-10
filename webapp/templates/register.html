@@ -1,0 +1,30 @@
+{% extends 'auth-base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/auth.css' %}">
+{% endblock css %}
+
+{% block pageTitle %}Register - Hamro Khata{% endblock pageTitle %}
+
+{% block content %}
+    <div class="auth-form-container">
+        <div class="logo"></div>
+        <div class="auth-title">
+            <h2>Register</h2>
+        </div>
+        <div>
+            <small>Already have an account? <a href="{% url 'login' %}">Login!</a></small>
+        </div>
+        <div class="auth-form">
+            <form method="post">
+                {% csrf_token %}
+                {{form | crispy}}
+                <div>
+                    <input class="btn btn-primary" type="submit" value="Register">
+                </div>
+            </form>
+        </div>
+    </div>    
+{% endblock content%}

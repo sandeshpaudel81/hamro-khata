@@ -1,0 +1,157 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    font-size: 20px;
+    font-weight: 600;
+    text-rendering: optimizeLegibility;
+    background-color: #cccccc;
+    font-family: 'Nunito', sans-serif;
+    overflow-x: hidden;
+}
+.sidebar {
+    margin: 0;
+    padding: 0;
+    width: 350px;
+    background-color: #4056A1;;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+}
+div.content {
+    margin-left: 350px;
+    padding: 1px 16px;
+    height: auto;
+}
+.sidebar .profile-image {
+    text-align: center;
+    margin: 10px 0px;
+}
+.sidebar .profile-image img{
+    width: 150px;
+    box-shadow: 0 4px 8px 0 #cccccc, 0 6px 20px 0 #cccccc;
+    border-radius: 50%;
+}
+.sidebar .profile-image img:hover {
+    box-shadow: 0 4px 8px 0 #232f58, 0 6px 20px 0 #232f58;
+}
+.sidebar .profile {
+    text-align: center;
+    margin-bottom: 50px;
+    color: #cccccc;
+}
+.sidebar .profile a {
+    color: #cccccc;
+    border: 2px solid#cccccc;
+    padding: 5px;
+    border-radius: 5px;
+}
+.sidebar .profile a:hover{
+    background: #cccccc;
+    color: black;
+    text-decoration: none;
+}
+.sidebar .quicklink {
+    padding: 10px 20px;
+}
+.sidebar .quicklink:hover {
+    background: #cccccc;
+    color: black;
+}
+.sidebar .quicklink:hover > .sidebar .quicklink a{
+    color: black;
+}
+.sidebar .quicklink a{
+    color: #cccccc;
+}
+.sidebar .quicklink ion-icon {
+    margin-right: 10px;
+    font-size: 120%;
+}
+.sidebar .quicklink a:hover {
+    background: #cccccc;
+    color: black;
+    text-decoration: none;
+}
+/* On screens that are less than 700px wide, make the sidebar into a topbar */
+@media screen and (max-width: 700px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+    .sidebar a {float: left;}
+    div.content {margin-left: 0;}
+    }
+    
+/* On screens that are less than 400px, display the bar vertically, instead of horizontally */
+@media screen and (max-width: 400px) {
+.sidebar a {
+    text-align: center;
+    float: none;
+}
+}
+
+
+/* HOME */
+.topay {
+    border: 2px solid #4056A1;
+    text-align: center;
+    color: red;
+    background-size: 100% 200%;
+    background-image: linear-gradient(to bottom, transparent 50%, red 50%);
+    transition: background-position 1s;
+}
+.toget {
+    border: 2px solid #4056A1;
+    color: green;
+    text-align: center;
+    background-size: 100% 200%;
+    background-image: linear-gradient(to bottom, transparent 50%, green 50%);
+    transition: background-position 1s;
+}
+.topay:hover,
+.toget:hover {
+    color: #cccccc;
+    background-position: 0 -100%;
+}
+.total {
+    border: 2px solid #4056A1;
+    color: #4056A1;
+    text-align: center;
+    transition: all 0.5s ease-out;
+}
+.total:hover {
+    background: #4056A1;
+    color: white;
+}
+.addlink {
+    color: white;
+    text-align: center;
+    border: 1px solid #cccccc;
+    background-size: 200% 100%;
+    background-image: linear-gradient(to right,  #4056A1 50%, #232f58 50%);
+    transition: background-position 1s;
+}
+.addlink:hover {
+    background-position: -100% 0;
+}
+.addlink a {
+    color: white;
+}
+.my-btn {
+    outline: none;
+    border: 1px solid #4056A1;
+    color: #cccccc;
+    background: #4056A1;
+    padding: 5px 15px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+.my-btn:hover {
+    background: #232f58;
+}

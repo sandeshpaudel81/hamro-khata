@@ -1,0 +1,49 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    font-size: 20px;
+    font-weight: 600;
+    text-rendering: optimizeLegibility;
+    background-color: #4056A1;
+    font-family: 'Nunito', sans-serif;
+    overflow-x: hidden;
+}
+h2 {
+    font-weight: 300%;
+    font-size: 300%;
+}
+small {
+    color: dimgrey;
+}
+form {
+    background: transparent;
+}
+.auth-form-container {
+    background-color: white;
+    padding: 30px;
+    width: 60%;
+    position: absolute;
+    margin: 50px 0px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.auth-title {
+    text-align: center;
+    margin: 20px 0;
+}
+.auth-btn {
+    background: #4056A1;
+    color: white;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 20px;
+    border: none;
+}
+.auth-btn:hover {
+    background: #232f58;
+}

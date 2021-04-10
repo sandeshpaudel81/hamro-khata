@@ -1,0 +1,1 @@
+web: gunicorn hamro_khata.wsgi --log-file -

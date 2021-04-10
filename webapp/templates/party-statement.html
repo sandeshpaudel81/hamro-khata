@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/design.css' %}">
+{% endblock css %}
+
+{% block pageTitle %}Statement - Hamro Khata{% endblock pageTitle %}
+
+{% block content %}
+    <div class="row p-3">
+        <div class="col-12 table-responsive">
+            <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">DESCRIPTION</th>
+                    <th scope="col">DATE</th>
+                    <th scope="col">AMOUNT</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    {% for transaction in transactions %}
+                        {% if transaction.action == 'add' %}
+                        <tr style="background: green;">
+                            <th scope="row">{{transaction.id}}</th>
+                            <td>{{transaction.description}}</td>
+                            <td>{{transaction.datetime}}</td>
+                            <td>{{transaction.amount}}</td>
+                        </tr>
+                        {% elif transaction.action == 'sub' %}
+                        <tr style="background: red;">
+                            <th scope="row">{{transaction.id}}</th>
+                            <td>{{transaction.description}}</td>
+                            <td>{{transaction.datetime}}</td>
+                            <td>{{transaction.amount}}</td>
+                        </tr>
+                        {% endif %}
+                    {% endfor %}
+                  <tr>
+                    <th scope="row"></th>
+                    <td colspan="2">TOTAL</td>
+                    <td>{{party.amount}}</td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+{% endblock content %}

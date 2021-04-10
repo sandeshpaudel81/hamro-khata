@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- Bootstrap CSS -->
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Fonts -->
+    
+    <!-- Date-time picker -->
+    <link rel="stylesheet" href="{% static 'date-time-picker/jquery-ui.css' %}">
+    <link rel="stylesheet" href="{% static 'date-time-picker/jquery-ui-timepicker-addon.css' %}">
+    <!-- Date-time picker -->
+
+    <!-- CSS Files -->
+    {% block css %}{% endblock %}
+    <!-- CSS Files -->
+    <title>{% block pageTitle %}{% endblock %}</title>
+</head>
+<body>
+    <main>
+        <div class="sidebar">
+            <div class="profile-image">
+                <img src="{{ user.profile.image.url }}" alt="{{user.first_name}}">
+            </div>
+            <div class="profile">
+                <h3>{{user.first_name}} {{user.last_name}}</h3>
+                <h6>{{user.profile.address}}<br>{{user.email}}</h6>
+                <a href="{% url 'update_profile' %}">Update profile</a>
+            </div>
+            <div class="quicklink">
+                <a href="{% url 'home' %}"><ion-icon name="home"></ion-icon>Dashboard</a>
+            </div>
+            <div class="quicklink">
+                <a href="{% url 'change-password' %}"><ion-icon name="key"></ion-icon>Change password</a>
+            </div>
+            <div class="quicklink">
+                <a href="{% url 'logout' %}"><ion-icon name="exit"></ion-icon>Logout</a>
+            </div>
+        </div>
+        <div class="content">
+            {% block content %}{% endblock %}
+        </div>
+    </main>
+
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+
+    <!-- ionicons js -->
+    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+    <!-- ionicons js -->
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- jQuery -->
+
+    <!-- JS Files -->
+    <script src="{% static 'date-time-picker/jquery-ui.js' %}"></script>
+    <script src="{% static 'date-time-picker/jquery-ui-timepicker-addon.js' %}"></script>
+    {% block js %}{% endblock %}
+    <!-- JS Files -->
+</body>
+</html>
