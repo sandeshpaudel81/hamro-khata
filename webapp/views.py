@@ -80,6 +80,11 @@ class TransactionCreateView(LoginRequiredMixin, CreateView):
         form.instance.user = self.request.user
         return super(TransactionCreateView, self).form_valid(form)
 
+    def get_form_kwargs(self):
+        kwargs = super(TransactionCreateView, self).get_form_kwargs()
+        kwargs.update({'user': self.request.user})
+        return kwargs
+
 @login_required(login_url='/login/')
 def party_statement(request, id):
     party = Party.objects.get(id=id)

@@ -55,6 +55,12 @@ class TransactionForm(forms.ModelForm):
     ]
 
     action = forms.ChoiceField(choices=ACTION_CHOICES, label="To Pay/To get", help_text="Choose + for income and - for expense")
+    party = forms.ModelChoiceField(queryset=Party.objects.filter(user__id=1), empty_label="Select Party")
+
+    def __init__(self, *args, **kwargs):
+        self.user = kwargs.pop('user')
+        super(TransactionForm, self).__init__(*args, **kwargs)
+        self.fields['party'].queryset = Party.objects.filter(user = self.user.id)
 
     class Meta:
         model = Transaction
