@@ -31,7 +31,7 @@
                 {% if user.profile.image %}
                 <img src="{{ user.profile.image.url }}" alt="{{user.first_name}}">
                 {% else %}
-                <img src="{% static 'images/default-avatar.png' %}" alt="{{ user.first_name }}">
+                <img src="{% static 'images/avatar.png' %}" alt="{{ user.first_name }}">
                 {% endif %}
             </div>
             <div class="profile">
